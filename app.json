@@ -1,0 +1,32 @@
+{
+  "id": "2543ed1c-0667-42a5-8d97-459f8325e480",
+  "name": "ChatGPT4BC",
+  "publisher": "Andrii Ishyn",
+  "version": "1.0.0.0",
+  "brief": "Chat_GPT(FEB13)",
+  "description": "Chat_GPT(FEB13) Business Central integration",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "10.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
