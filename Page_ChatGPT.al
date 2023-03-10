@@ -1,9 +1,13 @@
 page 50112 "Chat GPT"
 {
+
     ApplicationArea = All;
+    // The page will be of type "List" and will render as a List.
     PageType = List;
+    //Page Caption
     Caption = 'Chat GPT Integration';
     SourceTable = "Chat GPT";
+    //Sorting descending
     SourceTableView = order(descending);
     UsageCategory = Lists;
 
@@ -14,10 +18,11 @@ page 50112 "Chat GPT"
             field(MessageToSend; MessageToSend)
             {
                 ApplicationArea = All;
-                Caption = 'Ask Question to Chat GPT';
+                Caption = 'git s';
                 trigger OnValidate()
                 begin
                     APIKEY := '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';
+                    //APIKEY := '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';
                     if MessageToSend <> '' then begin
                         ChatGPTIntegrationwithBC.InsertResponse('Me: ' + MessageToSend);
                         Commit();
