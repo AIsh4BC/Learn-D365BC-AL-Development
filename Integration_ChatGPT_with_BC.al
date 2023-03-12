@@ -1,7 +1,7 @@
 codeunit 50106 "ChatGPT Integration with BC"
 {
 
-
+    //Procedure 
     procedure SendMessage(apiKey: Text; message: Text): Text
     var
 
@@ -22,9 +22,9 @@ codeunit 50106 "ChatGPT Integration with BC"
 
     begin
 
-        // model := 'text-davinci-003';
-        model := 'gpt-3.5-turbo-0301';
-        maxtoken := 2000;
+
+        model := 'text-davinci-003';    //model text-davinci-003
+        maxtoken := 2048;
         temperature := 1;
         topp := 1;
         freqpenal := 0;
@@ -37,11 +37,13 @@ codeunit 50106 "ChatGPT Integration with BC"
         json.Add('frequency_penalty', freqpenal);
         json.Add('presence_penalty', presencepenalty);
 
-
+        //HTTP request
         request.Method := 'POST';
         request.SetRequestUri('https://api.openai.com/v1/completions');
         Request.GetHeaders(Headers);
-        Headers.Add('Authorization', 'Bearer ' + apiKey);
+        Headers.Add('Authorization', 'Bearer ' + APIKEY);
+
+        //Write JSON response
         content.WriteFrom(Format(json));
 
         content.GetHeaders(Headers);
@@ -49,12 +51,11 @@ codeunit 50106 "ChatGPT Integration with BC"
         Headers.TryAddWithoutValidation('Content-Type', 'application/json');
         request.Content := content;
 
-
+        //Send HTTP request and receive response
         Client.Send(request, response);
 
 
         if response.HttpStatusCode <> 200 then begin
-
             Error('Error sending message to ChatGPT.');
         end;
 
@@ -99,14 +100,14 @@ codeunit 50106 "ChatGPT Integration with BC"
                     O2.Get('text', T3);
                     if T3.IsValue() then begin
                         V := T3.AsValue();
-                        txt := CopyStr(V.AsText(), 1, 240);
-                        InsertResponse('ChatGPT: ' + txt);
+                        txt := CopyStr(V.AsText(), 1, 990);
+                        InsertResponse('GPT: ' + txt);
                     end;
                 end;
             end;
         end;
         if txt <> '' then
-            txt := CopyStr(txt, 1, 250);
+            txt := CopyStr(txt, 1, 1000);
         exit(txt);
     end;
 

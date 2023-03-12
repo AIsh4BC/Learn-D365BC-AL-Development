@@ -5,7 +5,7 @@ page 50112 "Chat GPT"
     // The page will be of type "List" and will render as a List.
     PageType = List;
     //Page Caption
-    Caption = 'Chat GPT Integration';
+    Caption = 'Chat GPT Page';
     SourceTable = "Chat GPT";
     //Sorting descending
     SourceTableView = order(descending);
@@ -18,13 +18,12 @@ page 50112 "Chat GPT"
             field(MessageToSend; MessageToSend)
             {
                 ApplicationArea = All;
-                Caption = 'git s';
+                Caption = 'Send message to ChatGPT';
                 trigger OnValidate()
                 begin
-                    APIKEY := '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';
-                    //APIKEY := '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';
+                    APIKEY := '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'; //Get You API on https://platform.openai.com/account/api-keys
                     if MessageToSend <> '' then begin
-                        ChatGPTIntegrationwithBC.InsertResponse('Me: ' + MessageToSend);
+                        ChatGPTIntegrationwithBC.InsertResponse('You: ' + MessageToSend);
                         Commit();
                         CurrPage.Update(false);
                         response := ChatGPTIntegrationwithBC.SendMessage(APIKEY, MessageToSend);
@@ -35,7 +34,7 @@ page 50112 "Chat GPT"
             }
             repeater(General)
             {
-                Editable = false;
+                Editable = true;
                 field(Message; Rec.Message)
                 {
                     ApplicationArea = All;

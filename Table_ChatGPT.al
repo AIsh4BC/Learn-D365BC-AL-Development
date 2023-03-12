@@ -1,5 +1,6 @@
 table 50112 "Chat GPT"
 {
+
     Caption = 'Chat GPT';
     DataClassification = ToBeClassified;
 
@@ -10,7 +11,7 @@ table 50112 "Chat GPT"
             Caption = 'Entry No.';
             DataClassification = CustomerContent;
         }
-        field(2; Message; Text[250])
+        field(2; Message; Text[1000]) //250
         {
             Caption = 'Interactions';
             DataClassification = CustomerContent;
