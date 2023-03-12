@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[],"Removed":[]}
+﻿{"Added":[],"Modified":[{"Id":50106,"Kind":11,"Name":"ChatGPT Integration with BC","PackagePath":"/src/Integration_ChatGPT_with_BC.al"},{"Id":50112,"Kind":12,"Name":"Chat GPT","PackagePath":"/src/Page_ChatGPT.al"},{"Id":50100,"Kind":16,"Name":"CustomerListExt","PackagePath":"/src/Start_ChatGPT.al"}],"Removed":[{"Id":0,"Kind":12,"Name":"ChatGpt Order List","PackagePath":"/src/Start_ChatGPT.al"}]}
